@@ -8,8 +8,7 @@ import Typography from '@material-ui/core/Typography';
 
 import AppBar from '@material-ui/core/AppBar';
 
-//import { openDatabase } from 'react-native-sqlite-storage';
-//var db = openDatabase({ name: 'todo_db.db.db' });
+
 
 class MainScreen extends React.Component {
 

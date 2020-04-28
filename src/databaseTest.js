@@ -1,10 +1,10 @@
 const sqlite3 = require('sqlite3').verbose();
 
-let db = new sqlite3.Database('C:/sqlite/dbs/todo_db.db', (err) => {
+let db = new sqlite3.Database('../db_example/db_example.db', (err) => {
     if (err) {
         console.error(err.message);
     }
-    console.log('Connected to the chinook database.');
+    console.log('Connected to the database.');
 });
 
 db.close((err) => {
