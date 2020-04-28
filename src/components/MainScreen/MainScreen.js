@@ -4,20 +4,23 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 
-import PermanentDrawer from '../PermanentDrawer/PermanentDrawer';
-
 import Typography from '@material-ui/core/Typography';
 
 import AppBar from '@material-ui/core/AppBar';
 
+//import { openDatabase } from 'react-native-sqlite-storage';
+//var db = openDatabase({ name: 'todo_db.db.db' });
+
 class MainScreen extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
 
     render(){
         return (
             <div>
-                <PermanentDrawer >
-
-                </PermanentDrawer>
                 <div>
                     <AppBar color="primary" position="static">
                         <Typography align="center" color="white" variant="h4">
@@ -32,9 +35,6 @@ class MainScreen extends React.Component {
                             <Card raised="true">
                                 <CardHeader title="Task List"></CardHeader>
                             </Card>
-                            <TodoField></TodoField>
-                            <TodoField></TodoField>
-                            <TodoField></TodoField>
                             <TodoField></TodoField>
                         </CardContent>
                     </Card>
