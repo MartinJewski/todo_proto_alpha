@@ -69,8 +69,6 @@ app.get('/api/access_todos', (request, response) =>{
 })
 
 app.post('/api/new_todo', (request, response, next) =>{
-    const insert_todo = 'INSERT INTO todos (todo_id, todo_text) VALUES(?,?)';
-
     let errors=[]
     if (!request.body.d_todo_id){
         errors.push("No id specified");
@@ -83,6 +81,8 @@ app.post('/api/new_todo', (request, response, next) =>{
         return;
     }
 
+    const insert_todo = 'INSERT INTO todos (todo_id, todo_text) ' +
+                        'VALUES(?,?)';
     let data = {
         d_todo_id: parseInt(request.body.d_todo_id),
         d_todo_text: request.body.d_todo_text
@@ -105,14 +105,13 @@ app.post('/api/new_todo', (request, response, next) =>{
 })
 
 app.patch("/api/update_todo/:p_id", (request, response, next) => {
-    let data = {
-        d_todo_text: request.body.d_todo_text
-    }
-
     const update_todo = 'UPDATE todos set '+
                         'todo_text = COALESCE(?, todo_text)'+ //if ? is NULL, take todo_text
                         'WHERE ' +
                         'todo_id = ?';
+    let data = {
+        d_todo_text: request.body.d_todo_text
+    }
 
     db.run(update_todo, [data.d_todo_text, request.params.p_id], function (err, result){
         if(err){
