@@ -7,15 +7,28 @@
 // go to localhost:9000/api/courses
 //stop server windows germany keyboard strg+C
 
+//POST requests via curl -d "keyword=_&keyword2=_&..." -X POST http://localhost:9000/api/new_todo
 
-var express = require('express');
-
+const  express = require('express');
 var app = express();
+
+const sqlite3 = require('sqlite3').verbose(); //open database connection
+
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+let db = new sqlite3.Database('../db_example/db_example.db', sqlite3.OPEN_READWRITE, (err) => {
+    if (err) {return console.error(err.message);}
+    console.log('Connected to the db_example database.');
+});
+
+
 
 app.get('/', (request, response) => {
 
     response.send("You are using the simple todo api. For more information <br>" +
-                  "go to localhost:9000/api")
+                  "go to localhost:9000/api");
 
 })
 
@@ -24,14 +37,72 @@ app.get('/api', (request, response) =>{
     response.send("list of all api calls <br/> " +
         "/ <br/>" +
         "/api <br/>" +
-        "/api/todos <br/>")
+        "/api/access_todos <br/>");
 })
 
 
-app.get('/api/todos', (request, response) =>{
-    response.send("special information page <br/>" +
-        "HERE DO SOMETHING")
+
+app.get('/api/access_todos', (request, response) =>{
+    const select_todos = "SELECT * FROM todos";
+
+    let allRows = []
+    db.each(select_todos, [], (err ,row) => {
+        if (err) {
+            response.json({
+                "message":"failed",
+                "data":[],
+            })
+            console.error(err.message);
+        }
+
+        allRows.push(row);
+    }, () =>{
+        //callback function
+        console.log(allRows)
+        response.json({
+            "message":"success",
+            "data":allRows
+        })
+    })
+
+    db.close();
 })
 
+app.post('/api/new_todo', (request, response, next) =>{
+    const insert_todo = 'INSERT INTO todos (todo_id, todo_text) VALUES(?,?)';
+
+    let errors=[]
+    if (!request.body.d_todo_id){
+        errors.push("No id specified");
+    }
+    if (!request.body.d_todo_id){
+        errors.push("No text specified");
+    }
+    if (errors.length){
+        response.status(400).json({"error":errors.join(",")});
+        return;
+    }
+
+    let data = {
+        d_todo_id: parseInt(request.body.d_todo_id),
+        d_todo_text: request.body.d_todo_text
+    }
+
+    db.run(insert_todo, [data.d_todo_id, data.d_todo_text], function (err, result){
+        if (err){
+            response.status(400).json({"error": err.message})
+            return;
+        }else{
+            response.json({
+                "message": "success",
+                "data": data,
+                "id" : this.lastID
+            })
+        }
+    })
+
+})
+
+const port = process.env.PORT || 9000
 //react app uses 3000
-app.listen(9000, () => {console.log("You are listening to Port 9000")})
+app.listen(port, () => {console.log("You are listening to Port 9000")})
