@@ -9,13 +9,11 @@ import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
 
 
-
 class MainScreen extends React.Component {
 
     constructor(props) {
         super(props);
     }
-
 
     render(){
         return (
