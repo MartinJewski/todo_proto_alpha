@@ -89,6 +89,7 @@ app.post('/api/new_todo', (request, response, next) =>{
     }
 
     db.run(insert_todo, [data.d_todo_id, data.d_todo_text], function (err, result){
+
         if (err){
             response.status(400).json({"error": err.message})
             return;
@@ -103,8 +104,31 @@ app.post('/api/new_todo', (request, response, next) =>{
 
 })
 
-app.patch("/api/update_todo", (request, response, next) => {
+app.patch("/api/update_todo/:p_id", (request, response, next) => {
+    let data = {
+        d_todo_text: request.body.d_todo_text
+    }
 
+    const update_todo = 'UPDATE todos set '+
+                        'todo_text = COALESCE(?, todo_text)'+ //if ? is NULL, take todo_text
+                        'WHERE ' +
+                        'todo_id = ?';
+
+    db.run(update_todo, [data.d_todo_text, request.params.p_id], function (err, result){
+        if(err){
+            console.log(err.message)
+            response.status(400).json({"error": response.message})
+            return;
+        }
+
+        console.log("text was changed")
+        response.json({
+            message: "success",
+            data: data,
+            changes: this.changes
+        })
+
+    })
 })
 
 const port = process.env.PORT || 9000
