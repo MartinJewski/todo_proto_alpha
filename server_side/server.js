@@ -14,28 +14,24 @@ var app = express();
 
 app.get('/', (request, response) => {
 
-    response.send("Hello there!")
+    response.send("You are using the simple todo api. For more information <br>" +
+                  "go to localhost:9000/api")
 
 })
 
 //usually we separate specific routes into files
-app.get('/api/courses', (request, response) =>{
-    response.send(["Theoretische Informatik", "Computer Grafik", "Mathe1"])
-})
-
-
-app.get('/api/information', (request, response) =>{
-    response.send("special information page <br/>" +
-        "/api and /courses /info etc.. that are in use")
-})
-
 app.get('/api', (request, response) =>{
     response.send("list of all api calls <br/> " +
         "/ <br/>" +
         "/api <br/>" +
-        "/api/information <br/>" +
-        "/api/courses")
+        "/api/todos <br/>")
+})
+
+
+app.get('/api/todos', (request, response) =>{
+    response.send("special information page <br/>" +
+        "HERE DO SOMETHING")
 })
 
 //react app uses 3000
-app.listen(9000, () => { console.log("You are listening to Port 9000")})
+app.listen(9000, () => {console.log("You are listening to Port 9000")})
