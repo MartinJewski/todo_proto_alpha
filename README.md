@@ -1,16 +1,13 @@
+The project uses NodeJs +Express on the back end side 
+while providing a very basic front end using ReactJS (WebbApp)+Material-Ui.
+SQLite is used as the database management system and since this is a simple demo,
+the database finds it's place inside todo_proto_alpha>db_example.
 
-
-
-
-
-
-
-
-
-
-
-
-
+The server side code is stored inside the server.js which is located at
+   todo_proto_alpha>server_side>server.js
+The front end is basically stored in 
+ todo_proto_alpha>src
+ 
 
 #-----------------------------------predefined information------------------------------
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
