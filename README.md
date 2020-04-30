@@ -38,7 +38,8 @@ Environment: <br />
 <br />
 
 ![settings picture](https://github.com/MartinJewski/todo_proto_alpha/tree/master/npm.png?raw=true)  <br />
-#___predefined information___  <br />
+#------------------------------------- <br />
+#-------predefined information-------- <br />
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts  <br />
