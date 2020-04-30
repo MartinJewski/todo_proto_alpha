@@ -12,7 +12,28 @@ The server side code is stored inside the server.js which is located at <br />
 The front end is basically stored in <br />
 todo_proto_alpha>src <br />
 
- 
+## how to start
+###WebStorm
+clone from git and set up your run configurations for the <br />
+main project. <br />
+
+npm --version > 6.14.4
+node --version > v12.16.2
+nodemon --version > 2.0.3 (for node js) (todo_proto_alpha>npm install nodemon --save-dev)
+
+My run config under Run/Debug Configuration: <br />
+add new npm configuration:  <br />
+
+name: npm start <br />
+package.json: ~\WebstormProjects\todo_proto_alpha\package.json <br />
+Command: run <br />
+Script: start <br />
+Arguments: <br />
+---
+Node interpreter: 
+Package manager: Project /usr/lib/node_modules/npm
+Environment: 
+
 
 #___predefined information___
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
