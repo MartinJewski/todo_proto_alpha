@@ -5,9 +5,6 @@ The project uses NodeJs +Express on the back end side  <br />
 while providing a very basic front end using ReactJS (WebbApp)+Material-Ui. <br />
 SQLite is used as the database management system and since this is a simple demo,<br /> 
 the database finds it's place inside todo_proto_alpha>db_example. <br />
-
-<img src="https://github.com/MartinJewski/todo_proto_alpha/tree/master/example_run.png?raw=true" alt="Italian Trulli" style="width: 55vw; min-width: 330px;">
-
 The frameworks mocha and chai are used for testing. <br />
 
 ## location <br />
