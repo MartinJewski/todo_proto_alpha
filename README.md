@@ -18,14 +18,28 @@ todo_proto_alpha>src <br />
 ## how to start  <br />
 ###WebStorm  <br />
 clone from git and set up your run configurations for the <br />
-main project. <br />
+main project inside WebStorm. <br />
 
-npm --version > 6.14.4
-node --version > v12.16.2
-nodemon --version > 2.0.3 (for node js) (todo_proto_alpha>npm install nodemon --save-dev)
-mocha  --version > 7.1.2 (todo_proto_alpha>npm i mocha chai --save-dev)
+---------------------------------< br/>
+If you don't use WebStorm, run 'npm install' inside the todo_proto_alpha folder <br />
+to install dependencies. Furthermore, if you go inside thepackage.json you will see <br />
+  "scripts": { <br />
+    "start": "react-scripts start", <br />
+    "build": "react-scripts build", <br />
+    "test": "react-scripts test", <br />
+    "eject": "react-scripts eject" <br />
+  }, <br />
 
-npm install --save-dev eslint-plugin-chai-expect
+To run your react script, be inside >todo_proto_alpha and run 'react-scripts start'
+to start the script
+---------------------------------< br/>
+
+
+npm --version > 6.14.4 <br />
+node --version > v12.16.2 <br />
+nodemon --version > 2.0.3 (for node js) (todo_proto_alpha>npm install nodemon --save-dev) <br />
+mocha  --version > 7.1.2 (todo_proto_alpha>npm i mocha chai --save-dev) <br />
+
 
 My run config under Run/Debug Configuration: <br />
 add new npm configuration:  <br />
@@ -43,8 +57,13 @@ Environment: <br />
 <br />
 
 ![settings picture](https://github.com/MartinJewski/todo_proto_alpha/tree/master/npm.png?raw=true)  <br />
-#------------------------------------- <br />
-#-------predefined information-------- <br />
+<br />
+<br />
+<br />
+<br />
+<br />
+###-------------WebStorm-------------------- <br />
+###-------predefined information-------- <br />
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts  <br />
