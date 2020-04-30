@@ -56,7 +56,7 @@ Environment: <br />
 
 <br />
 
-![settings picture](https://github.com/MartinJewski/todo_proto_alpha/tree/master/npm_small.png?raw=true)  <br />
+![settings picture](https://github.com/MartinJewski/todo_proto_alpha/tree/master/npm.png?raw=true)  <br />
 <br />
 <br />
 <br />
