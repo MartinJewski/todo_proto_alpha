@@ -1,6 +1,7 @@
 
 #___project information___ <br />
-![program picture](https://github.com/MartinJewski/todo_proto_alpha/tree/master/example_run_small.png?raw=true) <br />
+![program picture](https://github.com/MartinJewski/todo_proto_alpha/tree/master/example_run.png?raw=true) 
+
 The project uses NodeJs +Express on the back end side  <br />
 while providing a very basic front end using ReactJS (WebbApp)+Material-Ui. <br />
 SQLite is used as the database management system and since this is a simple demo,<br /> 
