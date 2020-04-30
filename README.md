@@ -1,6 +1,6 @@
 
 #___project information___ <br />
-![program](https://github.com/MartinJewski/todo_proto_alpha/tree/master/example_run.png?raw=true) <br />
+![program picture](https://github.com/MartinJewski/todo_proto_alpha/tree/master/example_run.png?raw=true) <br />
 The project uses NodeJs +Express on the back end side  <br />
 while providing a very basic front end using ReactJS (WebbApp)+Material-Ui. <br />
 SQLite is used as the database management system and since this is a simple demo, 
@@ -37,7 +37,7 @@ Environment: <br />
 
 <br />
 
-![npm](https://github.com/MartinJewski/todo_proto_alpha/tree/master/npm.png?raw=true)  <br />
+![settings picture](https://github.com/MartinJewski/todo_proto_alpha/tree/master/npm.png?raw=true)  <br />
 #___predefined information___  <br />
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
