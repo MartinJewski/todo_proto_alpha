@@ -1,20 +1,20 @@
 
-#___project information___
+#___project information___ <br />
 ![programm](https://github.com/MartinJewski/todo_proto_alpha/tree/master/example_run.png) <br />
 The project uses NodeJs +Express on the back end side  <br />
 while providing a very basic front end using ReactJS (WebbApp)+Material-Ui. <br />
 SQLite is used as the database management system and since this is a simple demo, 
 the database finds it's place inside todo_proto_alpha>db_example. <br />
 
-## location
+## location <br />
 The server side code is stored inside the server.js which is located at <br />
    todo_proto_alpha>server_side>server.js <br />
    
 The front end is basically stored in <br />
 todo_proto_alpha>src <br />
 
-## how to start
-###WebStorm
+## how to start  <br />
+###WebStorm  <br />
 clone from git and set up your run configurations for the <br />
 main project. <br />
 
@@ -37,15 +37,15 @@ Environment: <br />
 
 <br />
 
-![npm](https://github.com/MartinJewski/todo_proto_alpha/tree/master/npm.png)
-#___predefined information___
+![npm](https://github.com/MartinJewski/todo_proto_alpha/tree/master/npm.png)  <br />
+#___predefined information___  <br />
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Available Scripts  <br />
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm start`  <br />
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
