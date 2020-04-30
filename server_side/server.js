@@ -197,3 +197,6 @@ const port = process.env.PORT || 9000
 //react app uses 3000
 app.listen(port,
     () => {console.log("You are listening to Port " + port.toString(10))})
+
+//export for testing
+export default app;

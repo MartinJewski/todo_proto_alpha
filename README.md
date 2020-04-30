@@ -21,6 +21,7 @@ main project. <br />
 npm --version > 6.14.4
 node --version > v12.16.2
 nodemon --version > 2.0.3 (for node js) (todo_proto_alpha>npm install nodemon --save-dev)
+mocha  --version > 7.1.2 (todo_proto_alpha>npm i mocha chai --save-dev)
 
 My run config under Run/Debug Configuration: <br />
 add new npm configuration:  <br />
