@@ -152,7 +152,7 @@ app.patch("/api/update_todo/:p_id", (request, response, next) => {
             return;
         }
 
-        console.log("text was changed")
+        console.log("updated")
         response.json({
             message: "success",
             data: data,

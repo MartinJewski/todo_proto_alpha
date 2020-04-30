@@ -1,5 +1,6 @@
 
 #___project information___
+![programm](https://ibb.co/FkvFvfJ) <br />
 The project uses NodeJs +Express on the back end side  <br />
 while providing a very basic front end using ReactJS (WebbApp)+Material-Ui. <br />
 SQLite is used as the database management system and since this is a simple demo, 
@@ -29,12 +30,14 @@ package.json: ~\WebstormProjects\todo_proto_alpha\package.json <br />
 Command: run <br />
 Script: start <br />
 Arguments: <br />
----
-Node interpreter: 
-Package manager: Project /usr/lib/node_modules/npm
-Environment: 
+---<br />
+Node interpreter: <br />
+Package manager: Project /usr/lib/node_modules/npm<br />
+Environment: <br />
 
+<br />
 
+![npm](https://ibb.co/FzHwqYf)
 #___predefined information___
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

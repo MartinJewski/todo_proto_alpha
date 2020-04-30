@@ -36,6 +36,9 @@ class MainScreen extends React.Component {
             const content = await rawResponse.json();
             console.log(content);
         })();
+        this.setState({
+            shouldRefresh: true
+        });
     }
 
     componentDidMount(){
@@ -63,6 +66,7 @@ class MainScreen extends React.Component {
                             shouldRefresh: false
                         });
                     })
+            console.log("page refreshed")
         }
     }
 
