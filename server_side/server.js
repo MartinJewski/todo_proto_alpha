@@ -39,7 +39,9 @@ app.get('/', (request, response) => {
     response.send("You are using the simple todo api. For more information <br>" +
                   "go to localhost:9000/api");
 
-    db.close()
+    process.on('SIGINT', () => {
+        db.close();
+    });
 })
 
 //usually we separate specific routes into files
@@ -56,7 +58,9 @@ app.get('/api', (request, response) =>{
         "/api/access_todos <br/>"+
         "/api/update_todo/:p_id <br/>"+
         "/api/new_todo <br/>");
-    db.close();
+    process.on('SIGINT', () => {
+        db.close();
+    });
 })
 
 
@@ -72,10 +76,7 @@ app.get('/api/access_todos', (request, response) =>{
     let allRows = []
     db.each(select_todos, [], (err ,row) => {
         if (err) {
-            response.json({
-                "message":"failed",
-                "data":[],
-            })
+            response.status(300).json({"error":err.join(",")});
             console.error(err.message);
         }
 
@@ -87,9 +88,13 @@ app.get('/api/access_todos', (request, response) =>{
             "message":"success",
             "data":allRows
         })
+
     })
 
-    db.close();
+    //https://stackoverflow.com/questions/42928055/when-to-close-database-with-node-sqlite3-and-express
+    process.on('SIGINT', () => {
+        db.close();
+    });
 })
 
 app.post('/api/new_todo', (request, response, next) =>{
@@ -117,7 +122,7 @@ app.post('/api/new_todo', (request, response, next) =>{
     db.run(insert_todo, [data.d_todo_text], function (err, result){
 
         if (err){
-            response.status(400).json({"error": err.message})
+            response.status(500).json({"error": err.message})
             return;
         }else{
             response.json({
@@ -127,7 +132,9 @@ app.post('/api/new_todo', (request, response, next) =>{
             })
         }
     })
-    db.close();
+    process.on('SIGINT', () => {
+        db.close();
+    });
 })
 
 app.patch("/api/update_todo/:p_id", (request, response, next) => {
@@ -148,7 +155,7 @@ app.patch("/api/update_todo/:p_id", (request, response, next) => {
     db.run(update_todo, [data.d_todo_text, request.params.p_id], function (err, result){
         if(err){
             console.log(err.message)
-            response.status(400).json({"error": response.message})
+            response.status(600).json({"error": response.message})
             return;
         }
 
@@ -161,7 +168,9 @@ app.patch("/api/update_todo/:p_id", (request, response, next) => {
 
     })
 
-    db.close()
+    process.on('SIGINT', () => {
+        db.close();
+    });
 })
 
 app.delete("/api/delete_todo/:p_id", (request, response, next) => {
@@ -178,7 +187,7 @@ app.delete("/api/delete_todo/:p_id", (request, response, next) => {
     db.run(update_todo, [request.params.p_id], function (err, result){
         if(err){
             console.log(err.message)
-            response.status(400).json({"error": response.message})
+            response.status(700).json({"error": response.message})
             return;
         }
 
@@ -190,12 +199,14 @@ app.delete("/api/delete_todo/:p_id", (request, response, next) => {
 
     })
 
-    db.close()
+    process.on('SIGINT', () => {
+        db.close();
+    });
 })
 
 const port = process.env.PORT || 9000
 //react app uses 3000
-app.listen(port,
+let server = app.listen(port,
     () => {console.log("You are listening to Port " + port.toString(10))})
 
 //export for testing

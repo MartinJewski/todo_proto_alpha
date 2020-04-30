@@ -10,9 +10,11 @@ NORMAL: Tests that run exceeding half of the threshold (but still within it) wil
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const app = require('../../server_side/server');
+const expect = require('chai').expect;
 
 chai.use(chaiHttp);
-chai.should();
+const should = chai.should();
+
 
 describe("server test", ()=>{
 
@@ -21,7 +23,12 @@ describe("server test", ()=>{
         it("should get all todo entries", (done) => {
             chai.request(app)
                 .get('localhost:9000/api/access_todos')
+                .set({'Accept':'application/json', 'Content-Type': 'application/json'})
                 .end((err, res) => {
+                    // eslint-disable-next-line no-unused-expressions
+                    //expect(res.body.data).to.be.json;
+                    should.exist(res);
+                    res.should.be.an('object');
                     done();
                 });
         });
@@ -29,11 +36,14 @@ describe("server test", ()=>{
         //you can have multiple it statements here
     });
 
+//-------------skeleton tests---------------
+//they have to check against a desired output/result!!
     describe("PATCH localhost:9000/api/update_todo/43", () => {
 
         it("should update a todo_id:43", (done) => {
             chai.request(app)
                 .patch('localhost:9000/api/update_todo/43')
+                .set({'Accept':'application/json', 'Content-Type': 'application/json'})
                 .send({todo_text: "ice cream"})
                 .end((err, res) => {
                     done();
@@ -48,6 +58,7 @@ describe("server test", ()=>{
         it("should creat a new todo", (done) => {
             chai.request(app)
                 .post('http://localhost:9000/api/new_todo')
+                .set({'Accept':'application/json', 'Content-Type': 'application/json'})
                 .send({d_todo_text: "ice cream"})
                 .end((err, res) => {
                     if (err) done(err);
