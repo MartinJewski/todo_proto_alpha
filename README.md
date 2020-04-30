@@ -3,10 +3,12 @@
 ![program picture](https://github.com/MartinJewski/todo_proto_alpha/tree/master/example_run.png?raw=true) <br />
 The project uses NodeJs +Express on the back end side  <br />
 while providing a very basic front end using ReactJS (WebbApp)+Material-Ui. <br />
-SQLite is used as the database management system and since this is a simple demo, 
+SQLite is used as the database management system and since this is a simple demo,<br /> 
 the database finds it's place inside todo_proto_alpha>db_example. <br />
 
-The frameworks mocha and chai are used for testing. 
+<img src="https://github.com/MartinJewski/todo_proto_alpha/tree/master/example_run.png?raw=true" alt="Italian Trulli">
+
+The frameworks mocha and chai are used for testing. <br />
 
 ## location <br />
 The server side code is stored inside the server.js which is located at <br />
@@ -20,7 +22,7 @@ todo_proto_alpha>src <br />
 clone from git and set up your run configurations for the <br />
 main project inside WebStorm. <br />
 
----------------------------------< br/>
+--------------NON WEBSTORM-------------------<br />
 If you don't use WebStorm, run 'npm install' inside the todo_proto_alpha folder <br />
 to install dependencies. Furthermore, if you go inside thepackage.json you will see <br />
   "scripts": { <br />
@@ -31,8 +33,8 @@ to install dependencies. Furthermore, if you go inside thepackage.json you will 
   }, <br />
 
 To run your react script, be inside >todo_proto_alpha and run 'react-scripts start'
-to start the script
----------------------------------< br/>
+to start the script<br />
+---------------------------------<br />
 
 
 npm --version > 6.14.4 <br />
