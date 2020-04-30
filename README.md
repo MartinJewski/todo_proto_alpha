@@ -6,6 +6,8 @@ while providing a very basic front end using ReactJS (WebbApp)+Material-Ui. <br 
 SQLite is used as the database management system and since this is a simple demo, 
 the database finds it's place inside todo_proto_alpha>db_example. <br />
 
+The frameworks mocha and chai are used for testing. 
+
 ## location <br />
 The server side code is stored inside the server.js which is located at <br />
    todo_proto_alpha>server_side>server.js <br />

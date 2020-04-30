@@ -199,4 +199,4 @@ app.listen(port,
     () => {console.log("You are listening to Port " + port.toString(10))})
 
 //export for testing
-export default app;
+module.exports = app
