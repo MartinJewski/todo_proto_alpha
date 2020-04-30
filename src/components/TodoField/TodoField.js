@@ -9,6 +9,49 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 class TodoField extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            item_id:this.props.item_id,
+            item_label: this.props.item_label,
+            item_placeholder: this.props.item_placeholder,
+            item_value: this.props.item_value,
+        }
+
+        this.onHandleChange = this.onHandleChange.bind(this)
+        this.onHandleSave = this.onHandleSave.bind(this)
+    }
+
+    onHandleChange(event){
+        if(this.state.item_value === null){
+            console.log("set item value")
+            this.setState({
+                item_value: ""
+            })
+        }else{
+            this.setState({
+                item_value: event.target.value
+            })
+            console.log("todo item value: " + this.state.item_value)
+        }
+    }
+
+    onHandleSave(event){
+
+        (async () => {
+            const rawResponse = await fetch('http://localhost:9000/api/update_todo/'
+                + this.state.item_id, {
+                method: 'PATCH',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({d_todo_text: this.state.item_value}),
+            });
+            const content = await rawResponse.json();
+            console.log(content);
+        })();
+    }
 
     render(){
         return(
@@ -16,18 +59,27 @@ class TodoField extends React.Component{
                     <CardContent>
                         <div>
                             <TextField
-                                id="standard-textarea"
-                                label="Task"
-                                placeholder="todo..."
+                                id={this.state.item_label + "_" + this.state.item_id.toString()}
+                                label={this.state.item_label + " " + this.state.item_id.toString()}
+                                placeholder={this.state.item_placeholder}
                                 multiline
                                 color="primary"
+                                onChange={this.onHandleChange}
+                                value={this.state.item_value}
                             />
                         </div>
                         <div>
                             <Button variant="contained"
                                     color="secondary"
-                                    size="small">
+                                    size="small"
+                                    onClick={() => this.props.delete_fun(this.state.item_id)}>
                                 Delete
+                            </Button>
+                            <Button variant="contained"
+                                    color="primary"
+                                    size="small"
+                                    onClick={this.onHandleSave}>
+                                Save
                             </Button>
                         </div>
                     </CardContent>
