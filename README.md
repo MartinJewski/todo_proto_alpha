@@ -32,7 +32,7 @@ to install dependencies. Furthermore, if you go inside thepackage.json you will 
 
 To run the react script, be inside >todo_proto_alpha and run 'react-scripts start'
 to start the script. <br />
-You can start the server via 'nodemon server.js' while being inside >todo_proto_alpha>server_side 
+You can start the server via 'nodemon server.js' while being inside >todo_proto_alpha>server_side <br />
 ---------------------------------<br />
 
 
