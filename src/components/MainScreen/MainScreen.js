@@ -5,8 +5,11 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Button from "@material-ui/core/Button";
 import Typography from '@material-ui/core/Typography';
-
 import AppBar from '@material-ui/core/AppBar';
+
+
+import styles from "./MainScreen.module.css"
+
 
 
 class MainScreen extends React.Component {
@@ -114,7 +117,7 @@ class MainScreen extends React.Component {
 
                 <div>
                     <Card>
-                        <CardContent>
+                        <CardContent className={styles.MainScreen_CardContent_Basic}>
                             <Card raised={true}>
                                 <CardHeader title="Task List"></CardHeader>
                                 <Button variant="contained"
@@ -125,11 +128,11 @@ class MainScreen extends React.Component {
                                         onClick={() => {this.setState({shouldRefresh: true})}}>
                                     Refresh</Button>
                             </Card>
+
                             {this.showTodos()}
                         </CardContent>
                     </Card>
                 </div>
-
             </div>
 
         );

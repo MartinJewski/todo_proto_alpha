@@ -8,6 +8,8 @@ import CardContent from '@material-ui/core/CardContent';
 
 import Typography from '@material-ui/core/Typography';
 
+import styles from "./TodoField.module.css"
+
 class TodoField extends React.Component{
     constructor(props) {
         super(props);
@@ -55,9 +57,9 @@ class TodoField extends React.Component{
 
     render(){
         return(
-                <Card>
-                    <CardContent>
-                        <div>
+                <Card className={styles.myMui}>
+                    <CardContent className={styles.flex_start}>
+                        <div className={styles.left_box}>
                             <TextField
                                 id={this.state.item_label + "_" + this.state.item_id.toString()}
                                 label={this.state.item_label + " " + this.state.item_id.toString()}
@@ -66,9 +68,12 @@ class TodoField extends React.Component{
                                 color="primary"
                                 onChange={this.onHandleChange}
                                 value={this.state.item_value}
+                                rows={2}
+                                labelWidth={60}
+                                className={styles.Field_Look}
                             />
                         </div>
-                        <div>
+                        <div className={styles.right_box}>
                             <Button variant="contained"
                                     color="secondary"
                                     size="small"
