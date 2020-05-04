@@ -21,7 +21,7 @@ clone from git and set up your run configurations for the <br />
 main project inside WebStorm. <br />
 
 --------------NON WEBSTORM-------------------<br />
-If you don't use WebStorm, run 'npm install' inside the todo_proto_alpha folder <br />
+If you don't use WebStorm, first run 'npm install' inside the todo_proto_alpha folder <br />
 to install dependencies. Furthermore, if you go inside thepackage.json you will see <br />
   "scripts": { <br />
     "start": "react-scripts start", <br />
@@ -30,8 +30,9 @@ to install dependencies. Furthermore, if you go inside thepackage.json you will 
     "eject": "react-scripts eject" <br />
   }, <br />
 
-To run your react script, be inside >todo_proto_alpha and run 'react-scripts start'
-to start the script<br />
+To run the react script, be inside >todo_proto_alpha and run 'react-scripts start'
+to start the script. <br />
+You can start the server via 'nodemon server.js' while being inside >todo_proto_alpha>server_side 
 ---------------------------------<br />
 
 
