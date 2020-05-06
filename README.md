@@ -15,11 +15,6 @@ The server side code is stored inside the server.js which is located at <br />
 The front end is basically stored in <br />
 todo_proto_alpha>src <br />
 
-## how to start  <br />
-###WebStorm  <br />
-clone from git and set up your run configurations for the <br />
-main project inside WebStorm. <br />
-
 --------------NON WEBSTORM-------------------<br />
 If you don't use WebStorm, first run 'npm install' inside the todo_proto_alpha folder <br />
 to install dependencies. Furthermore, if you go inside thepackage.json you will see <br />
@@ -34,6 +29,12 @@ To run the react script, be inside >todo_proto_alpha and run 'react-scripts star
 to start the script. <br />
 You can start the server via 'nodemon server.js' while being inside >todo_proto_alpha>server_side <br />
 ---------------------------------<br />
+
+
+## how to start  <br />
+###WebStorm  <br />
+clone from git and set up your run configurations for the <br />
+main project inside WebStorm. <br />
 
 
 npm --version > 6.14.4 <br />
@@ -54,8 +55,11 @@ Arguments: <br />
 Node interpreter: <br />
 Package manager: Project /usr/lib/node_modules/npm<br />
 Environment: <br />
-
 <br />
+
+You can start the server via 'nodemon server.js' while being inside >todo_proto_alpha>server_side <br />
+
+
 
 ![settings picture](https://github.com/MartinJewski/todo_proto_alpha/tree/master/npm.png?raw=true)  <br />
 <br />
