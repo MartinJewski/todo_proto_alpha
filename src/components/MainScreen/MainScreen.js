@@ -24,6 +24,7 @@ class MainScreen extends React.Component {
         this.showTodos = this.showTodos.bind(this);
         this.onHandleNewTodo = this.onHandleNewTodo.bind(this);
         this.onDeleteTodo = this.onDeleteTodo.bind(this);
+        this.onSaveClick = this.onSaveClick.bind(this);
     }
 
     onHandleNewTodo(){
@@ -73,6 +74,10 @@ class MainScreen extends React.Component {
         }
     }
 
+    onSaveClick(isClicked){
+        this.setState({shouldRefresh: isClicked})
+    }
+
     onDeleteTodo(todo_id){
         (async () => {
             const rawResponse = await fetch('http://localhost:9000/api/delete_todo/'+todo_id, {
@@ -83,6 +88,8 @@ class MainScreen extends React.Component {
                 }
             });
             const content = await rawResponse.json();
+            this.onSaveClick(true);
+            console.log("content after delete");
             console.log(content);
         })();
     }
@@ -97,6 +104,7 @@ class MainScreen extends React.Component {
                                      item_placeholder={"text"}
                                      item_value={this.state.item_list[i].todo_text}
                                      delete_fun={this.onDeleteTodo}
+                                     save_fun={this.onSaveClick}
                                      />)
         }
 
@@ -106,35 +114,28 @@ class MainScreen extends React.Component {
 
     render(){
         return (
-            <div>
-                <div>
-                    <AppBar color="primary" position="static">
-                        <Typography align="center" color="initial" variant="h4">
-                            Todo-App
-                        </Typography>
-                    </AppBar>
-                </div>
-
-                <div>
-                    <Card>
-                        <CardContent className={styles.MainScreen_CardContent_Basic}>
-                            <Card raised={true}>
-                                <CardHeader title="Task List"></CardHeader>
+            <main>
+                <div className={styles.MidContent}>
+                    <div className={styles.navigation}>
+                        <Typography className={styles.title} variant={"h2"}> Todo-List </Typography>
+                        <div className={styles.titleButtons}>
+                            <div className={styles.buttonsStyle}>
                                 <Button variant="contained"
                                         color="primary"
-                                        onClick={this.onHandleNewTodo}>New Todo</Button>
+                                        onClick={this.onHandleNewTodo} >New Todo</Button>
+                            </div>
+                            <div className={styles.buttonsStyle}>
                                 <Button variant="contained"
                                         color="primary"
                                         onClick={() => {this.setState({shouldRefresh: true})}}>
-                                    Refresh</Button>
-                            </Card>
-
-                            {this.showTodos()}
-                        </CardContent>
-                    </Card>
+                                    Refresh
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                    {this.showTodos()}
                 </div>
-            </div>
-
+            </main>
         );
     }
 

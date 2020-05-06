@@ -39,7 +39,6 @@ class TodoField extends React.Component{
     }
 
     onHandleSave(event){
-
         (async () => {
             const rawResponse = await fetch('http://localhost:9000/api/update_todo/'
                 + this.state.item_id, {
@@ -51,6 +50,7 @@ class TodoField extends React.Component{
                 body: JSON.stringify({d_todo_text: this.state.item_value}),
             });
             const content = await rawResponse.json();
+            console.log("content saved");
             console.log(content);
         })();
     }
