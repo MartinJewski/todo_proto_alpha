@@ -24,8 +24,11 @@
 
 .right_box{
     flex-grow: 1; /* default 0 */
-    /*background-color: #8b0000;*/
+    display: block;
+
 }
+
+
 
 .Field_Look{
     width: 100%;
